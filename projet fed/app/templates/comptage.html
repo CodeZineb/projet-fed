@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Centre de Comptage{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">Centre de Comptage</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date de Naissance</th>
+            <th>Identifiant</th>
+            <th>Bulletin (chiffré)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for vote in votes %}
+        <tr>
+            <td>{{ vote.nom }}</td>
+            <td>{{ vote.prenom }}</td>
+            <td>{{ vote.date_naissance }}</td>
+            <td>{{ vote.identifiant }}</td>
+            <td><code>{{ vote.bulletin }}</code></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

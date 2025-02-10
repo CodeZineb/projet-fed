@@ -1,0 +1,5 @@
+Flask
+Flask-Mail
+cryptography 
+firebase-admin
+

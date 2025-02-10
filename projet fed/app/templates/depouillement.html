@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Centre de Dépouillement{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">Centre de Dépouillement</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Identifiant</th>
+            <th>Bulletin Déchiffré</th>
+            <th>Statut</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.identifiant }}</td>
+            <td>{{ result.bulletin }}</td>
+            <td>{{ result.statut }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
