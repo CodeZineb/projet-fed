@@ -1,36 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Vote App{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('https://leyton.com/fr/wp-content/uploads/sites/4/2022/04/shutterstock_1845670270.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white; /* Texte blanc pour meilleure visibilité */
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Assombrit l'image pour lisibilité */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin-top: 10%;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+    </style>
 </head>
 <body>
+    <div class="overlay"></div>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="/">Vote App</a>
-            <div class="collapse navbar-collapse">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/votant">Voter</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/comptage">Centre de Comptage</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/depouillement">Dépouillement</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/votant">Voter</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/comptage">Centre de Comptage</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/depouillement">Dépouillement</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-  
+    <div class="container mt-5 content">
+        <h1>Application de vote électronique sécurisée</h1>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-    <div class="container mt-5">
         {% with messages = get_flashed_messages(with_categories=True) %}
             {% if messages %}
                 {% for category, message in messages %}
@@ -42,5 +65,8 @@
         {% endwith %}
         {% block content %}{% endblock %}
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
